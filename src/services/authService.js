@@ -48,8 +48,12 @@ const authService = {
 
     // Cambiar contraseña
     changePassword: async (data) => {
-        const response = await api.post('/auth/change-password', data);
+       try{
+        const response = await api.post('/auth', data);
         return response.data;
+       }catch(e){
+         return e.response.data
+       }
     },
 };
 

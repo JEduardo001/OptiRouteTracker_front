@@ -18,7 +18,6 @@ const Users = () => {
     const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.#_\-]).{8,35}$/;
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const [users, setUsers] = useState([]);
-    const [roles, setRoles] = useState([]);
     const [availableRoles, setAvailableRoles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -32,7 +31,6 @@ const Users = () => {
 
     var newRoleSelected;
 
-    // AHORA formData coincide con DtoUpdateUser
     const [formData, setFormData] = useState({
         id: '',
         name: '',
@@ -64,7 +62,7 @@ const Users = () => {
         try {
             const response = await userService.getAll({ page: currentPage - 1, size: 10 });
 
-            // Soporta backend paginado o no paginado
+            // backend paginado o no paginado
             const list =
                 Array.isArray(response)
                     ? response
@@ -216,14 +214,12 @@ const Users = () => {
             }
 
             if (selectedUser) {
-                const response = await userService.update(payload);
-                setMessageResponseApi(response.message)
+                await userService.update(payload);
                 toast.success('Éxito', 'Usuario actualizado');
             } else {
                 await userService.create(payload);
                 toast.success('Éxito', 'Usuario creado');
             }
-
             setIsModalOpen(false);
             fetchUsers();
         } catch {
