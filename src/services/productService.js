@@ -4,7 +4,6 @@ const productService = {
     // Obtener todos los productos
     getAll: async (params = {}) => {
         const response = await api.get('/product?page=' + params.page + "&" + "size=" + params.size);
-        console.log("dasdasdsadsad: ", response)
         return response.data.data;
     },
 
@@ -16,7 +15,6 @@ const productService = {
 
     // Crear producto
     create: async (data) => {
-        console.log("xxx ", data)
         const response = await api.post('/product', data);
         return response.data.data;
     },

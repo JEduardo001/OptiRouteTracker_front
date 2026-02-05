@@ -98,7 +98,6 @@ const Products = () => {
     const fetchCategories = async () => {
         try {
             const response = await categoryService.getAll({ page: currentPage - 1, size: sizeElementByPage });
-            console.log("categorias: ", response)
             const categoryList = Array.isArray(response) ? response : response.data || [];
             setCategories(categoryList);
         } catch (error) {
@@ -128,7 +127,6 @@ const Products = () => {
     const handleOpenModal = (product = null) => {
         if (product) {
             setSelectedProduct(product);
-            console.log("id pro: ", product.inventory.id)
             setFormData({
                 name: product.name || '',
                 description: product.description || '',

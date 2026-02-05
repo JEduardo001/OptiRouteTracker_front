@@ -3,7 +3,6 @@ import api from './api';
 const inventoryService = {
     // Obtener todos los inventarios
     getAll: async (params = {}) => {
-        console.log("das: ", params)
         const response = await api.get('/inventory?page=' + params.page + "&" + "size=" + params.size );
         return response.data.data;
     },

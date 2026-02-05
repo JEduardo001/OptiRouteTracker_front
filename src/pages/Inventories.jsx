@@ -27,7 +27,7 @@ const Inventories = () => {
         name: '',
         description: '',
         location: '',
-        active: true
+        active: false
     });
     const [formErrors, setFormErrors] = useState({});
 
@@ -64,7 +64,7 @@ const Inventories = () => {
                 name: inventory.name || '',
                 description: inventory.description || '',
                 location: inventory.location || '',
-                active: inventory.active || true,
+                active: inventory.active || false,
             });
         } else {
             setSelectedInventory(null);
@@ -73,7 +73,7 @@ const Inventories = () => {
                 name: '',
                 description: '',
                 location: '',
-                active: true
+                active: false
             });
         }
         setFormErrors({});

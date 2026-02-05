@@ -15,16 +15,13 @@ const userService = {
 
     // Crear usuario
     create: async (data) => {
-        console.log("cccc : ", data)
         const response = await api.post('/user', data);
         return response.data.data;
     },
 
     // Actualizar usuario
     update: async (data) => {
-        console.log("datos a enviar", data)
         const response = await api.put(`/user`, data);
-        console.log("rspuesta: ",response )
         return response.data.data;
     },
 
