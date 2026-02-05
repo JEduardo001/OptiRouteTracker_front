@@ -30,7 +30,6 @@ const Dashboard = () => {
                 userService.getAll({ page: 0, size: 10 }).catch(() => { })
 
             ]);
-            console.log(categories)
             setStats({
                 products: products.totalElements || 0,
                 categories: categories.totalElements || 0,
@@ -42,7 +41,6 @@ const Dashboard = () => {
             const productList = Array.isArray(products) ? products : products.content || [];
             setRecentProducts(productList.slice(0, 5));
         } catch (error) {
-            console.log('Error loading dashboard data:', error);
             // Usar datos de demostración si la API no está disponible
             setStats({
                 products: 128,
@@ -120,43 +118,7 @@ const Dashboard = () => {
                         </Card>
                     </Link>
                 ))}
-            </div>
-
-            {/* Main Content Grid */}
-            <div className="dashboard-grid">
-                {/* Chart Placeholder */}
-                <Card title="Resumen de Inventario">
-                    <div className="dashboard-chart">
-                        <div style={{ textAlign: 'center' }}>
-                            <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📊</div>
-                            <p className="text-secondary">
-                                Gráficos disponibles cuando conectes tu API
-                            </p>
-                        </div>
-                    </div>
-                </Card>
-
-                {/* Recent Activity */}
-                <Card title="Actividad Reciente">
-                    {recentActivities.map((activity, index) => (
-                        <div key={index} className="recent-activity-item">
-                            <div
-                                className="activity-icon"
-                                style={{
-                                    background: `var(--${activity.color}-bg, rgba(99, 102, 241, 0.1))`,
-                                    color: `var(--${activity.color})`,
-                                }}
-                            >
-                                {activity.icon}
-                            </div>
-                            <div className="activity-content">
-                                <div className="activity-title">{activity.title}</div>
-                                <div className="activity-time">{activity.time}</div>
-                            </div>
-                        </div>
-                    ))}
-                </Card>
-            </div>
+            </div>  
 
             {/* Quick Actions */}
             <Card title="Acciones Rápidas" style={{ marginTop: '1.5rem' }}>

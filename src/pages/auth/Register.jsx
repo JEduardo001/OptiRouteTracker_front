@@ -13,6 +13,7 @@ const Register = () => {
         password: '',
         confirmPassword: '',
         birthday: '',
+        roles: []
     });
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
@@ -83,9 +84,8 @@ const Register = () => {
             password: formData.password,
             passwordRepeat: formData.password,
             birthday: formData.birthday,
-            rolesId: []
+            roles: []
         });
-        console.log(result);
         if (result.success) {
             toast.success('¡Registro exitoso!', 'Ahora puedes iniciar sesión');
             navigate('/login');
@@ -139,6 +139,7 @@ const Register = () => {
                             value={formData.username}
                             onChange={handleChange}
                             error={errors.username}
+                            autoComplete="off"
                         />
 
                         <Input
@@ -169,6 +170,7 @@ const Register = () => {
                                 value={formData.password}
                                 onChange={handleChange}
                                 error={errors.password}
+                                autoComplete="new-password"
                             />
 
                             <Input

@@ -44,10 +44,6 @@ const Header = ({ collapsed, onMenuClick, title }) => {
             </div>
 
             <div className="header-right">
-                <button className="header-notification">
-                    🔔
-                    <span className="header-notification-badge"></span>
-                </button>
 
                 <div className="dropdown" ref={dropdownRef}>
                     <div

@@ -28,7 +28,7 @@ const Categories = () => {
     const [formData, setFormData] = useState({
         id: '',
         name: '',
-        active: true,
+        active: false,
         quantityProducts: '',
     });
 
@@ -73,7 +73,7 @@ const Categories = () => {
             setFormData({
                 id: '',
                 name: '',
-                active: '',
+                active: false,
                 quantityProducts: '',
             });
         }

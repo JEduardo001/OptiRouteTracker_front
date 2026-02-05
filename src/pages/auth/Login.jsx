@@ -46,10 +46,8 @@ const Login = () => {
             username: formData.username,
             password: formData.password,
         });
-        console.log(result);
         if (result.success) {
             toast.success('¡Bienvenido!', 'Has iniciado sesión correctamente');
-            console.log("todo bien");
             navigate('/dashboard');
         } else {
             toast.error('Error', result.error);
@@ -80,6 +78,7 @@ const Login = () => {
                             value={formData.username}
                             onChange={handleChange}
                             error={errors.username}
+                            autoComplete="off"
                         />
 
                         <Input
@@ -90,6 +89,7 @@ const Login = () => {
                             value={formData.password}
                             onChange={handleChange}
                             error={errors.password}
+                            autoComplete="new-password"
                         />
 
                         <Button type="submit" variant="primary" loading={loading} style={{ width: '100%' }}>

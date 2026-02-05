@@ -349,37 +349,27 @@ const Profile = () => {
 
                     <form onSubmit={handleChangePassword}>
                         {/* CONTRASEÑA ACTUAL */}
-                        <div style={{ position: "relative" }}>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "flex-end" }}>
                             <Input
                                 type={visibleCurrentPassword ? "text" : "password"}
                                 label="Contraseña Actual"
                                 name="currentPassword"
-                                error={formErrors.currentPassword}
                                 value={passwordData.currentPassword}
                                 onChange={handlePasswordChange}
                             />
-                            <button
-                                type="button"
+                            <Button 
+                                type="button" 
                                 onClick={() => setVisibleCurrentPassword(v => !v)}
-                                style={{
-                                    position: "absolute",
-                                    right: "12px",
-                                    top: "38px",
-                                    padding: "0.3rem 0.6rem",
-                                    borderRadius: "6px",
-                                    border: "1px solid #ccc",
-                                    background: "#f3f4f6",
-                                    cursor: "pointer",
-                                    fontSize: "0.75rem",
-                                }}
+                                style={{ padding: "5px 10px", fontSize: "12px", height: "38px" }}
                             >
                                 {visibleCurrentPassword ? "Ocultar" : "Ver"}
-                            </button>
+                            </Button>
                         </div>
 
                         {/* NUEVA CONTRASEÑA */}
-                        <div style={{ position: "relative" }}>
-                            <Input
+
+<                       div style={{ display: "flex", gap: "8px", alignItems: "flex-end" }}>
+                             <Input
                                 type={visibleNewPassword ? "text" : "password"}
                                 label="Nueva Contraseña"
                                 error={formErrors.newPassword}
@@ -387,23 +377,13 @@ const Profile = () => {
                                 value={passwordData.newPassword}
                                 onChange={handlePasswordChange}
                             />
-                            <button
-                                type="button"
+                            <Button 
+                                type="submit" 
                                 onClick={() => setVisibleNewPassword(v => !v)}
-                                style={{
-                                    position: "absolute",
-                                    right: "12px",
-                                    top: "38px",
-                                    padding: "0.3rem 0.6rem",
-                                    borderRadius: "6px",
-                                    border: "1px solid #ccc",
-                                    background: "#f3f4f6",
-                                    cursor: "pointer",
-                                    fontSize: "0.75rem",
-                                }}
+                                style={{ padding: "5px 10px", fontSize: "12px", height: "38px" }}
                             >
                                 {visibleNewPassword ? "Ocultar" : "Ver"}
-                            </button>
+                            </Button>
                         </div>
 
                         {/* CONFIRMAR NUEVA CONTRASEÑA (comparte estado) */}

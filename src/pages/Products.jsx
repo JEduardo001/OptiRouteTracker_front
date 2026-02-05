@@ -82,7 +82,6 @@ const Products = () => {
             setProducts(productList);
             setTotalPages(response.totalPages || 1);
         } catch (error) {
-            console.log('API no disponible, usando datos de demostración');
             // Demo data
             setProducts([
                 { id: 1, name: 'Laptop Dell XPS', description: 'Laptop de alto rendimiento', quantity: 15, serialNumber: 'DELL-001', batch: 1, active: true, createDate: '2024-01-15' },

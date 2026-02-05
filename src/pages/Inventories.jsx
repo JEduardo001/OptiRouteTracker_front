@@ -17,10 +17,8 @@ const Inventories = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [messageApi, setMessageApi] = useState('');
     // Modal states
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [selectedInventory, setSelectedInventory] = useState(null);
     const [formLoading, setFormLoading] = useState(false);
 
@@ -47,7 +45,6 @@ const Inventories = () => {
             setInventories(inventoryList);
             setTotalPages(response.totalPages || 1);
         } catch (error) {
-            console.log('API no disponible, usando datos de demostración');
             setInventories([
                 { id: 1, name: 'Almacén Principal', description: 'Almacén central de la empresa', location: 'Edificio A, Piso 1', quantity: 245, createDate: '2024-01-01' },
                 { id: 2, name: 'Bodega Sur', description: 'Bodega de productos terminados', location: 'Zona Industrial Sur', quantity: 189, createDate: '2024-01-05' },
@@ -113,7 +110,6 @@ const Inventories = () => {
         try {
 
             if (selectedInventory) {
-                console.log("dasdas : ", formData)
                 await inventoryService.update(formData);
                 toast.success('Éxito', 'Inventario actualizado correctamente');
             } else {
